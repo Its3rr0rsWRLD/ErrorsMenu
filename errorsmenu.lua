@@ -12,6 +12,10 @@ local TextBox = Instance.new("TextBox")
 local TextLabel = Instance.new("TextLabel")
 local NewLine = Instance.new("TextLabel")
 local Dash = Instance.new("TextButton")
+local Help = Instance.new("ScrollingFrame")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local X_2 = Instance.new("TextButton")
 
 --Properties:
 
@@ -97,9 +101,49 @@ Dash.Text = "-"
 Dash.TextColor3 = Color3.fromRGB(255, 255, 255)
 Dash.TextSize = 35.000
 
+Help.Name = "Help"
+Help.Parent = ErrorsTerminal
+Help.Active = true
+Help.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Help.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Help.Position = UDim2.new(0.745851517, 0, 0.373482734, 0)
+Help.Size = UDim2.new(0, 300, 0, 400)
+Help.Visible = false
+
+TextLabel_2.Parent = Help
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0, 0, 0.00793650839, 0)
+TextLabel_2.Size = UDim2.new(0, 286, 0, 50)
+TextLabel_2.Font = Enum.Font.GothamBold
+TextLabel_2.Text = "walkspeed - Changes walkspeed"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 15.000
+
+TextLabel_3.Parent = Help
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0, 0, 0.0312791802, 0)
+TextLabel_3.Size = UDim2.new(0, 286, 0, 50)
+TextLabel_3.Font = Enum.Font.GothamBold
+TextLabel_3.Text = "jumpheight - Changes jumpheight"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextSize = 15.000
+
+X_2.Name = "X"
+X_2.Parent = Help
+X_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+X_2.BackgroundTransparency = 1.000
+X_2.Position = UDim2.new(0.709999979, 0, -0.109710552, 0)
+X_2.Size = UDim2.new(0.416666657, 0, 0.234013647, 0)
+X_2.Font = Enum.Font.FredokaOne
+X_2.Text = "X"
+X_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+X_2.TextSize = 30.000
+
 -- Scripts:
 
-local function AVOTDA_fake_script() -- X.LocalScript 
+local function WUEQ_fake_script() -- X.LocalScript 
 	local script = Instance.new('LocalScript', X)
 
 	function OnClicked()
@@ -108,8 +152,8 @@ local function AVOTDA_fake_script() -- X.LocalScript
 	
 	script.Parent.MouseButton1Click:Connect(OnClicked)
 end
-coroutine.wrap(AVOTDA_fake_script)()
-local function ZRMGCJ_fake_script() -- TitleBar.LocalScript 
+coroutine.wrap(WUEQ_fake_script)()
+local function WDQTML_fake_script() -- TitleBar.LocalScript 
 	local script = Instance.new('LocalScript', TitleBar)
 
 	local UIS = game:GetService('UserInputService')
@@ -182,8 +226,8 @@ local function ZRMGCJ_fake_script() -- TitleBar.LocalScript
 	
 	end)
 end
-coroutine.wrap(ZRMGCJ_fake_script)()
-local function BRAYH_fake_script() -- Arrow.LocalScript 
+coroutine.wrap(WDQTML_fake_script)()
+local function UJZYS_fake_script() -- Arrow.LocalScript 
 	local script = Instance.new('LocalScript', Arrow)
 
 	function OnClicked()
@@ -206,8 +250,8 @@ local function BRAYH_fake_script() -- Arrow.LocalScript
 	
 	script.Parent.MouseButton1Click:Connect(OnClicked)
 end
-coroutine.wrap(BRAYH_fake_script)()
-local function WHDOMB_fake_script() -- TextBox.LocalScript 
+coroutine.wrap(UJZYS_fake_script)()
+local function FMESB_fake_script() -- TextBox.LocalScript 
 	local script = Instance.new('LocalScript', TextBox)
 
 	while true do
@@ -235,20 +279,21 @@ local function WHDOMB_fake_script() -- TextBox.LocalScript
 					script.Parent.Parent.NewLine.Text = ""
 					script.Parent.Text = ""
 				end
-				if script.Parent.Text == "gt -af" then
+				-- If the user types "help", set script.Parent.Parent.Help.Visible to true.
+				if string.find(script.Parent.Text, "help") then
+					script.Parent.Parent.Parent.Parent.Help.Visible = true
+					script.Parent.Parent.NewLine.Text = "Help Menu Opened."
+					wait(2)
 					script.Parent.Text = ""
-					local gameID = game.GameId
-					if gameID == 10191372093 then
-						print("e")
-					end
+					script.Parent.Parent.NewLine.Text = ""
 				end
 			end
 		end)
 		wait()
 	end
 end
-coroutine.wrap(WHDOMB_fake_script)()
-local function BQCX_fake_script() -- TextBox.Align 
+coroutine.wrap(FMESB_fake_script)()
+local function PZACKI_fake_script() -- TextBox.Align 
 	local script = Instance.new('LocalScript', TextBox)
 
 	local textLabel = script.Parent
@@ -260,14 +305,14 @@ local function BQCX_fake_script() -- TextBox.Align
 	
 	setAlignment(Enum.TextXAlignment.Left, Enum.TextYAlignment.Center)
 end
-coroutine.wrap(BQCX_fake_script)()
-local function AKED_fake_script() -- TextLabel.LocalScript 
+coroutine.wrap(PZACKI_fake_script)()
+local function RMQHAH_fake_script() -- TextLabel.LocalScript 
 	local script = Instance.new('LocalScript', TextLabel)
 
 	script.Parent.Text = "ErrorsMenu/" .. game.Players.LocalPlayer.Name .. "> "
 end
-coroutine.wrap(AKED_fake_script)()
-local function AXSRVGT_fake_script() -- TextLabel.Align 
+coroutine.wrap(RMQHAH_fake_script)()
+local function RZRSP_fake_script() -- TextLabel.Align 
 	local script = Instance.new('LocalScript', TextLabel)
 
 	local textLabel = script.Parent
@@ -279,8 +324,8 @@ local function AXSRVGT_fake_script() -- TextLabel.Align
 	
 	setAlignment(Enum.TextXAlignment.Left, Enum.TextYAlignment.Center)
 end
-coroutine.wrap(AXSRVGT_fake_script)()
-local function TZWFXUF_fake_script() -- NewLine.Align 
+coroutine.wrap(RZRSP_fake_script)()
+local function FCFYEHZ_fake_script() -- NewLine.Align 
 	local script = Instance.new('LocalScript', NewLine)
 
 	local textLabel = script.Parent
@@ -292,8 +337,8 @@ local function TZWFXUF_fake_script() -- NewLine.Align
 	
 	setAlignment(Enum.TextXAlignment.Left, Enum.TextYAlignment.Center)
 end
-coroutine.wrap(TZWFXUF_fake_script)()
-local function HEDZTFI_fake_script() -- Dash.LocalScript 
+coroutine.wrap(FCFYEHZ_fake_script)()
+local function ZHYR_fake_script() -- Dash.LocalScript 
 	local script = Instance.new('LocalScript', Dash)
 
 	function OnClicked()
@@ -316,4 +361,88 @@ local function HEDZTFI_fake_script() -- Dash.LocalScript
 	
 	script.Parent.MouseButton1Click:Connect(OnClicked)
 end
-coroutine.wrap(HEDZTFI_fake_script)()
+coroutine.wrap(ZHYR_fake_script)()
+local function OLFA_fake_script() -- Help.LocalScript 
+	local script = Instance.new('LocalScript', Help)
+
+	local UIS = game:GetService('UserInputService')
+	
+	local frame = script.Parent
+	
+	
+	
+	local dragToggle = nil
+	
+	local dragSpeed = 0.25
+	
+	local dragStart = nil
+	
+	local startPos = nil
+	
+	
+	
+	local function updateInput(input)
+	
+		local delta = input.Position - dragStart
+	
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+	
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+	
+		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	
+	end
+	
+	
+	
+	frame.InputBegan:Connect(function(input)
+	
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+	
+			dragToggle = true
+	
+			dragStart = input.Position
+	
+			startPos = frame.Position
+	
+			input.Changed:Connect(function()
+	
+				if input.UserInputState == Enum.UserInputState.End then
+	
+					dragToggle = false
+	
+				end
+	
+			end)
+	
+		end
+	
+	end)
+	
+	
+	
+	UIS.InputChanged:Connect(function(input)
+	
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+	
+			if dragToggle then
+	
+				updateInput(input)
+	
+			end
+	
+		end
+	
+	end)
+end
+coroutine.wrap(OLFA_fake_script)()
+local function GLPKEPY_fake_script() -- X_2.LocalScript 
+	local script = Instance.new('LocalScript', X_2)
+
+	function OnClicked()
+		script.Parent.Parent.Visible = false
+	end
+	
+	script.Parent.MouseButton1Click:Connect(OnClicked)
+end
+coroutine.wrap(GLPKEPY_fake_script)()
